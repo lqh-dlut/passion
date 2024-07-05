@@ -1,4 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>StudyAllDay</title><link>https://lqh-dlut.github.io/passion</link><description>hello</description><copyright>StudyAllDay</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://lqh-dlut.github.io/passion</link></image><lastBuildDate>Fri, 05 Jul 2024 01:10:09 +0000</lastBuildDate><managingEditor>StudyAllDay</managingEditor><ttl>60</ttl><webMaster>StudyAllDay</webMaster><item><title>开始学习！</title><link>https://lqh-dlut.github.io/passion/post/kai-shi-xue-xi-%EF%BC%81.html</link><description>- [ ] [观看transformer视频](https://www.bilibili.com/video/BV1XH4y1T76e/?spm_id_from=333.788.top_right_bar_window_default_collection.content.click&amp;vd_source=8c92169d4c84c919150f319298bb23db)&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>StudyAllDay</title><link>https://lqh-dlut.github.io/passion</link><description>hello</description><copyright>StudyAllDay</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://lqh-dlut.github.io/passion</link></image><lastBuildDate>Fri, 05 Jul 2024 13:02:39 +0000</lastBuildDate><managingEditor>StudyAllDay</managingEditor><ttl>60</ttl><webMaster>StudyAllDay</webMaster><item><title>Transformer</title><link>https://lqh-dlut.github.io/passion/post/Transformer.html</link><description>- 图像识别 -&gt; **CNN卷积神经网络**&#13;
+- NLP自然语言处理 -&gt; **RNN循环神经网络** 解决了seq2seq问题 输入输出语句长短不同&#13;
+- Transformer与RNN都保留了**编码和解码**的结构&#13;
+## 词嵌入&#13;
+- “码”指的大概是 把语言中的形式的不同去除后，剩下的单纯的**语义关系**，其标准有：&#13;
+&#13;
+1. 数字化&#13;
+2. 数值体现语义之间的相对关系&#13;
+&#13;
+&#13;
+&gt; 对token进行数字化的两种极端情况，上述的第一点标准都能实现，但第二点都是极端的错误：&#13;
+&#13;
+- **tokenizer标记器**（分词器）：每一个token都是不同的ID（一维）&#13;
+- **onehot独热编码**：每一个token是二级制中的每一位（n维）&#13;
+&#13;
+&gt; 矩阵乘法实现词嵌入，编码进潜空间，解码出潜空间&#13;
+&#13;
+- **潜空间**：没有形式上差别的语义空间，是连续的，因此遇到陌生的情况也能找到对应的值&#13;
+&#13;
+## Word2Vec（词典）&#13;
+&#13;
+&gt; 一般的机器学习目标：得到一个模型，模型能够完成任务；**Word2Vec**得到的是嵌入矩阵，得到的是模型的参数&#13;
+&#13;
+- Word2Vec**不需要激活函数**，隐藏层输出层的神经元做的就是向量求和与分解，没有非线性的需求&#13;
+&#13;
+&gt; 编码解码的过程大概是：输入token，经过矩阵编码得到词向量，而后解码再变成Token&#13;
+&#13;
+- CBOW和skip-gram都是**自监督**的方法，前者根据上下文中的词来预测目标词，后者相反&#13;
+&#13;
+## Transformer&#13;
+### 注意力&#13;
+&#13;
+&#13;
+。</description><guid isPermaLink="true">https://lqh-dlut.github.io/passion/post/Transformer.html</guid><pubDate>Fri, 05 Jul 2024 12:26:26 +0000</pubDate></item><item><title>开始学习！</title><link>https://lqh-dlut.github.io/passion/post/kai-shi-xue-xi-%EF%BC%81.html</link><description>- [ ] [观看transformer视频](https://www.bilibili.com/video/BV1XH4y1T76e/?spm_id_from=333.788.top_right_bar_window_default_collection.content.click&amp;vd_source=8c92169d4c84c919150f319298bb23db)&#13;
 - [ ] 修图&#13;
 - [ ] [codinguniversity学习](https://github.com/jwasham/coding-interview-university/blob/main/translations/README-cn.md#%E4%B8%BA%E4%BD%95%E8%A6%81%E7%94%A8%E5%88%B0%E5%AE%83)。</description><guid isPermaLink="true">https://lqh-dlut.github.io/passion/post/kai-shi-xue-xi-%EF%BC%81.html</guid><pubDate>Fri, 05 Jul 2024 01:09:45 +0000</pubDate></item><item><title>Test for gmeek blog</title><link>https://lqh-dlut.github.io/passion/post/Test%20for%20gmeek%20blog.html</link><description>### _Hello World!               --24.7.5_     。</description><guid isPermaLink="true">https://lqh-dlut.github.io/passion/post/Test%20for%20gmeek%20blog.html</guid><pubDate>Fri, 05 Jul 2024 00:41:31 +0000</pubDate></item></channel></rss>
