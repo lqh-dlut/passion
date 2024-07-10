@@ -9,7 +9,8 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="```python
+<meta name="description" content="###视图函数
+```python
 from markupsafe import escape
 
 @app.route('/user/<name>')
@@ -19,7 +20,8 @@ def user_page(name):
 
 > 注意 用户输入的数据会包含恶意代码，所以不能直接作为响应返回，需要使用 MarkupSafe（Flask 的依赖之一）提供的 escape() 函数对 name 变量进行转义处理，比如把 < 转换成 &lt;。">
 <meta property="og:title" content="Flask">
-<meta property="og:description" content="```python
+<meta property="og:description" content="###视图函数
+```python
 from markupsafe import escape
 
 @app.route('/user/<name>')
@@ -86,7 +88,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-k">from</span> <span class="pl-s1">markupsafe</span> <span class="pl-k">import</span> <span class="pl-s1">escape</span>
+<div class="markdown-body" id="postBody"><p>###视图函数</p>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-k">from</span> <span class="pl-s1">markupsafe</span> <span class="pl-k">import</span> <span class="pl-s1">escape</span>
 
 <span class="pl-en">@<span class="pl-s1">app</span>.<span class="pl-en">route</span>(<span class="pl-s">'/user/&lt;name&gt;'</span>)</span>
 <span class="pl-k">def</span> <span class="pl-en">user_page</span>(<span class="pl-s1">name</span>):
@@ -181,7 +184,30 @@ filter_by()大概是filter()的<strong>真子集</strong>。</p>
 <div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">movie</span> <span class="pl-c1">=</span> <span class="pl-v">Movie</span>.<span class="pl-s1">query</span>.<span class="pl-en">get</span>(<span class="pl-c1">2</span>)
 <span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">movie</span>.<span class="pl-s1">title</span> <span class="pl-c1">=</span> <span class="pl-s">'WALL-E'</span>  <span class="pl-c"># 直接对实例属性赋予新的值即可</span>
 <span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">movie</span>.<span class="pl-s1">year</span> <span class="pl-c1">=</span> <span class="pl-s">'2008'</span>
-<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">db</span>.<span class="pl-s1">session</span>.<span class="pl-en">commit</span>()  <span class="pl-c"># 注意仍然需要调用这一行来提交改动</span></pre></div></div>
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">db</span>.<span class="pl-s1">session</span>.<span class="pl-en">commit</span>()  <span class="pl-c"># 注意仍然需要调用这一行来提交改动</span></pre></div>
+<h3>app.errorhandler() 装饰器</h3>
+<p>作用与视图函数类似，在发生HTTP错误时被调用</p>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-en">@<span class="pl-s1">app</span>.<span class="pl-en">errorhandler</span>(<span class="pl-v">Exception</span>)</span>
+<span class="pl-k">def</span> <span class="pl-en">handle_exception</span>(<span class="pl-s1">e</span>):
+    <span class="pl-c"># 注意这里捕获的是所有异常</span>
+    <span class="pl-k">return</span> <span class="pl-en">render_template</span>(<span class="pl-s">'error.html'</span>, <span class="pl-s1">error</span><span class="pl-c1">=</span><span class="pl-en">str</span>(<span class="pl-s1">e</span>))
+
+<span class="pl-c">### 模板上下文处理函数</span>
+<span class="pl-s">``</span>`<span class="pl-s1">python</span>
+<span class="pl-en">@<span class="pl-s1">app</span>.<span class="pl-s1">context_processor</span></span>
+<span class="pl-k">def</span> <span class="pl-en">inject_user</span>():  <span class="pl-c"># 函数名可以随意修改</span>
+    <span class="pl-s1">user</span> <span class="pl-c1">=</span> <span class="pl-v">User</span>.<span class="pl-s1">query</span>.<span class="pl-en">first</span>()
+    <span class="pl-k">return</span> <span class="pl-en">dict</span>(<span class="pl-s1">user</span><span class="pl-c1">=</span><span class="pl-s1">user</span>)  <span class="pl-c"># 需要返回字典，等同于 return {'user': user}</span></pre></div>
+<blockquote>
+<p>此时render_template()函数中不需要传入<code class="notranslate">user=user</code></p>
+</blockquote>
+<blockquote>
+<p>Jinja2 模板引擎使用以下几种界定符：<br>
+{{ }} 用于变量插值，即在模板中插入变量的值。<br>
+{% %} 用于控制结构和其他模板标签。<br>
+#{# #} 用于注释，这些注释不会出现在生成的HTML中。</p>
+</blockquote>
+<p><code class="notranslate">movie = Movie.query.get_or_404(movie_id)</code>方法，它会返回对应主键的记录，如果没有找到，则返回 404 错误响应。</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

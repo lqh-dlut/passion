@@ -1,3 +1,4 @@
+###视图函数
 ```python
 from markupsafe import escape
 
@@ -104,3 +105,28 @@ filter_by()大概是filter()的**真子集**。
 >>> movie.year = '2008'
 >>> db.session.commit()  # 注意仍然需要调用这一行来提交改动
 ```
+
+### app.errorhandler() 装饰器
+作用与视图函数类似，在发生HTTP错误时被调用
+```python
+@app.errorhandler(Exception)
+def handle_exception(e):
+    # 注意这里捕获的是所有异常
+    return render_template('error.html', error=str(e))
+
+### 模板上下文处理函数
+```python
+@app.context_processor
+def inject_user():  # 函数名可以随意修改
+    user = User.query.first()
+    return dict(user=user)  # 需要返回字典，等同于 return {'user': user}
+```
+> 此时render_template()函数中不需要传入`user=user`
+
+> Jinja2 模板引擎使用以下几种界定符：
+{{ }} 用于变量插值，即在模板中插入变量的值。
+{% %} 用于控制结构和其他模板标签。
+#{# #} 用于注释，这些注释不会出现在生成的HTML中。
+
+`movie = Movie.query.get_or_404(movie_id)`方法，它会返回对应主键的记录，如果没有找到，则返回 404 错误响应。
+
