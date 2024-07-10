@@ -18,6 +18,8 @@ def user_page(name):
 ```python
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # 关闭对模型修改的监控
 ```
+### FLASK数据库
+[Flask-SQLAlchemy](https://read.helloflask.com/database/#_4)
 
 > **何时应该关闭？**
 > 
@@ -32,6 +34,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # 关闭对模型修改的
 (env) $ flask shell
 >>> from app import db
 >>> db.create_all()
+
+#app.py
+class Movie(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(20))
+    year = db.Column(db.String(4))
 ```
 > 上面打开 Python Shell 使用的是 flask shell命令，而不是 python。使用这个命令启动的 Python Shell 激活了“程序上下文”，它包含一些特殊变量，这对于某些操作是必须的（比如上面的 db.create_all()调用）。请记住，后续的 Python Shell 都会使用这个命令打开。
 
@@ -44,3 +52,55 @@ def initdb(drop):
 ...
 ```
 > 通常建议将 Click 的装饰器（如 @click.option() 和 @click.argument()）放在前面，这样可以确保 Click 正确解析所有命令行参数之后，再由 Flask 的装饰器（如 @app.cli.command()）处理这些参数和函数的注册。这样做的好处是 Click 可以正确地处理 --help 和其他命令行参数，而不会受到 Flask 装饰器可能带来的干扰。
+initdb作用：在env环境下使用调用函数进行数据库表的构造
+```python
+#构造
+flask initdb
+#删除后重新构造
+flask initdb --drop
+```
+**数据库的增删改查**
+
+> 导入模型类 `from app import User, Movie`
+提交数据库会话 `db.session.commit()`，只有commit才是真正提交到数据库中
+
+1. 新增数据
+```python
+>>> user = User(name='Grey Li')  # 创建一个 User 记录
+>>> m1 = Movie(title='Leon', year='1994')  # 创建一个 Movie 记录
+>>> m2 = Movie(title='Mahjong', year='1996')  # 再创建一个 Movie 记录
+>>> db.session.add(user)  # 把新创建的记录添加到数据库会话
+>>> db.session.add(m1)
+>>> db.session.add(m2)
+```
+2. 删除数据
+```python
+>>> movie = Movie.query.get(1)
+>>> db.session.delete(movie)  # 使用 db.session.delete() 方法删除记录，传入模型实例
+>>> db.session.commit()  # 提交改动
+```
+3. 查找数据
+```python
+
+filter() 过滤
+filter_by() 过滤(相等属性)
+order_by() 排序
+group_by() 分组
+
+```
+`User.query.filter_by(username='john_doe').first()`
+这行代码相当于：
+`User.query.filter(User.username == 'john_doe').first()`
+> filter() 方法接受**一个或多个条件表达式**作为参数，每个表达式都是一个Python表达式，使用等于 (==)、不等于 (!=)、大于 (>)、小于 (<) 等。
+filter_by() 方法接受关键字参数，**仅限于属性相等性**比较，不支持多个条件的组合，也不支持不等于（!=）、大于（>）、小于（<）等比较运算。
+filter_by()大概是filter()的**真子集**。
+
+<img src="https://github.com/lqh-dlut/passion/assets/63030247/a8524c6d-8fca-450c-acf6-43ca337385da"  width="600" height="300">
+
+4. 改变数据
+```python
+>>> movie = Movie.query.get(2)
+>>> movie.title = 'WALL-E'  # 直接对实例属性赋予新的值即可
+>>> movie.year = '2008'
+>>> db.session.commit()  # 注意仍然需要调用这一行来提交改动
+```
