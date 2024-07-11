@@ -207,7 +207,13 @@ filter_by()大概是filter()的<strong>真子集</strong>。</p>
 {% %} 用于控制结构和其他模板标签。<br>
 #{# #} 用于注释，这些注释不会出现在生成的HTML中。</p>
 </blockquote>
-<p><code class="notranslate">movie = Movie.query.get_or_404(movie_id)</code>方法，它会返回对应主键的记录，如果没有找到，则返回 404 错误响应。</p></div>
+<p><code class="notranslate">movie = Movie.query.get_or_404(movie_id)</code>方法，它会返回对应主键的记录，如果没有找到，则返回 404 错误响应。</p>
+<p>###werkzeug.security安全存储密码</p>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-k">from</span> <span class="pl-s1">werkzeug</span>.<span class="pl-s1">security</span> <span class="pl-k">import</span> <span class="pl-s1">generate_password_hash</span>, <span class="pl-s1">check_password_hash</span>
+
+<span class="pl-en">generate_password_hash</span>(<span class="pl-s1">pw</span>) <span class="pl-c">#生成密码哈希值</span>
+<span class="pl-en">check_password_hash</span>(<span class="pl-s1">pw_hash</span>, <span class="pl-s1">pw</span>) <span class="pl-c">#检查哈希值是否对应密码</span>
+`</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

@@ -130,3 +130,11 @@ def inject_user():  # 函数名可以随意修改
 
 `movie = Movie.query.get_or_404(movie_id)`方法，它会返回对应主键的记录，如果没有找到，则返回 404 错误响应。
 
+###werkzeug.security安全存储密码
+```python
+from werkzeug.security import generate_password_hash, check_password_hash
+
+generate_password_hash(pw) #生成密码哈希值
+check_password_hash(pw_hash, pw) #检查哈希值是否对应密码
+`
+
