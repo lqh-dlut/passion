@@ -210,7 +210,20 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 残差网络通过将输入与输出的残差相加，使得网络能学习到复杂的非线性映射，避免梯度爆炸消失的问题</p>
 <blockquote>
 <p>架构中还有前馈神经网络和线性层</p>
-</blockquote></div>
+</blockquote>
+<p><strong>输入层</strong><br>
+Tokenization: 输入文本首先会被分词器（tokenizer）分割成一系列的词汇单元（tokens）。<br>
+Embedding: 每个 token 都会被映射到一个固定维度的向量表示（embedding vector）。<br>
+Positional Encoding: 为了保持序列中单词的位置信息，Transformer 会在词嵌入上加上位置编码（positional encoding）。</p>
+<p><strong>编码器 (Encoder)</strong><br>
+Multi-Head Attention: Transformer 的编码器包含多个自注意力（self-attention）层，每一层都是多头注意力（multi-head attention）的形式。多头注意力允许模型在不同表示子空间中并行地执行注意力操作。<br>
+Position-wise Feed-Forward Networks (FFNs): 每个注意力层之后都会跟着一个前馈神经网络（FFN），这个 FFN 对序列中的每一个位置单独且独立地应用相同的全连接神经网络。</p>
+<p><strong>解码器 (Decoder)</strong><br>
+Masked Multi-Head Self-Attention: 解码器同样使用多头注意力，但是它的自注意力层会有一个特殊的掩码（mask），以确保当前位置的输出只依赖于先前的输出。<br>
+Multi-Head Attention with Encoder Outputs: 解码器还包括一个额外的注意力层，该层使用编码器的输出作为键（keys）和值（values），解码器层的输出作为查询（queries）。<br>
+Position-wise Feed-Forward Networks (FFNs): 解码器中也有 FFN 层，类似于编码器中的设计。</p>
+<p><strong>输出层</strong><br>
+Final Linear Layer and Softmax: 最后的线性层将解码器的输出转换为适合特定任务的形式，例如对于分类任务，通常会接一个 softmax 函数产生概率分布。</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
