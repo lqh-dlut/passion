@@ -9,9 +9,9 @@ NoSQL
 3. 图形化GUI -> RedisInsight
 
 windows下运行Redis
-<D:\app\redis>redis-server.exe   \\ 服务器端
-<D:\app\redis>redis-cli.exe   \\ 客户端
-**redis-cli.exe --raw**  \\显示原始数据（否则中文以二进制显示）
+<D:\app\redis>redis-server.exe   // 服务器端
+<D:\app\redis>redis-cli.exe         // 客户端
+**redis-cli.exe --raw**                  // 显示原始数据（否则中文以二进制显示）
 
 ### STRING
 SET key value
