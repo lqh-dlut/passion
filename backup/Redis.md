@@ -79,6 +79,13 @@ XADD stream *  field message // * 表示随机消息id，id可自定义[time-num
 XLEN stream 
 XRANGE stream - +  // - +代表的是从头到尾，可数字范围
 XDEL stream id
+XREAD COUNT num BLOCK millisecond STREAMS stream start   //num代表返回的条目数量，BLOCK是阻塞多少毫秒，start是开始的序列号
+XREAD COUNT 3 BLOCK 10000  STREAMS streamtest $   // **用' $ '表示从现在开始接收到的新消息**
+
+> consumer group 消费者组
+
+XGROUP CREAT stream group id MKSTREAM  // 创建消费者组 id表示该消费者组从何处开始读取信息，可省略使用SETID命令单独设置，而MKSTREAM表示若不存在则新创建一个stream
+
 
 
 
