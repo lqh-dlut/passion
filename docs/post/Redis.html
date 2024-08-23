@@ -44,7 +44,9 @@ TTL key               //查看过期时间
 ### List
 LPUSH list key1 key2 key3  //添加到list头部，一次性可添加多个，注意这样加的顺序是key3在头部
 RPUSH list key //尾部
+
 > 列表从左到右 0,1,2,3... L可以理解为left，R是right
+
 LRANGE list 0 -1  //输出列表元素，0 -1表示从头到尾
 LPOP/RPOP list count //从头/尾删除count个元素
 LTRIM list start end  //删除范围之外的元素
@@ -53,6 +55,7 @@ RPOPLPUSH //最简单的先进先出的队列
 
 ### SET
 > 无序集合，元素唯一不可以重复，没有顺序
+
 SADD set key     // 添加
 SMEMBERS set  // 输出
 SISMEMBER set key //判断是否是集合中元素
@@ -62,6 +65,7 @@ SUNION // 并集
 
 ### SortedSet (ZSet)
 > 有序集合，每一个唯一的元素关联一个不唯一的可重复的分数，按分数**从小到大**排序
+
 ZADD zset score1 key1 score2 key2 
 ZREM zset key
 ZRANGE zset start end [WITHSCORES]  //（带分数的）输出 
@@ -73,6 +77,7 @@ ZCOUNT zset min max // 范围内的成员数量
 
 
 ### HASH
+
 HSET hash key val
 HGET hash key
 HGETALL hash // 成对出现的哈希对
@@ -125,7 +130,9 @@ TTL key               //查看过期时间
 ### List
 LPUSH list key1 key2 key3  //添加到list头部，一次性可添加多个，注意这样加的顺序是key3在头部
 RPUSH list key //尾部
+
 > 列表从左到右 0,1,2,3... L可以理解为left，R是right
+
 LRANGE list 0 -1  //输出列表元素，0 -1表示从头到尾
 LPOP/RPOP list count //从头/尾删除count个元素
 LTRIM list start end  //删除范围之外的元素
@@ -134,6 +141,7 @@ RPOPLPUSH //最简单的先进先出的队列
 
 ### SET
 > 无序集合，元素唯一不可以重复，没有顺序
+
 SADD set key     // 添加
 SMEMBERS set  // 输出
 SISMEMBER set key //判断是否是集合中元素
@@ -143,6 +151,7 @@ SUNION // 并集
 
 ### SortedSet (ZSet)
 > 有序集合，每一个唯一的元素关联一个不唯一的可重复的分数，按分数**从小到大**排序
+
 ZADD zset score1 key1 score2 key2 
 ZREM zset key
 ZRANGE zset start end [WITHSCORES]  //（带分数的）输出 
@@ -154,6 +163,7 @@ ZCOUNT zset min max // 范围内的成员数量
 
 
 ### HASH
+
 HSET hash key val
 HGET hash key
 HGETALL hash // 成对出现的哈希对
@@ -264,27 +274,28 @@ TTL key               //查看过期时间</p>
 <p>LPUSH list key1 key2 key3  //添加到list头部，一次性可添加多个，注意这样加的顺序是key3在头部<br>
 RPUSH list key //尾部</p>
 <blockquote>
-<p>列表从左到右 0,1,2,3... L可以理解为left，R是right<br>
-LRANGE list 0 -1  //输出列表元素，0 -1表示从头到尾<br>
+<p>列表从左到右 0,1,2,3... L可以理解为left，R是right</p>
+</blockquote>
+<p>LRANGE list 0 -1  //输出列表元素，0 -1表示从头到尾<br>
 LPOP/RPOP list count //从头/尾删除count个元素<br>
 LTRIM list start end  //删除范围之外的元素<br>
 LLEN list //length<br>
 RPOPLPUSH //最简单的先进先出的队列</p>
-</blockquote>
 <h3>SET</h3>
 <blockquote>
-<p>无序集合，元素唯一不可以重复，没有顺序<br>
-SADD set key     // 添加<br>
+<p>无序集合，元素唯一不可以重复，没有顺序</p>
+</blockquote>
+<p>SADD set key     // 添加<br>
 SMEMBERS set  // 输出<br>
 SISMEMBER set key //判断是否是集合中元素<br>
 SREM set key //删除<br>
 SINTER set1 set2 ... //输出集合的交集<br>
 SUNION // 并集</p>
-</blockquote>
 <h3>SortedSet (ZSet)</h3>
 <blockquote>
-<p>有序集合，每一个唯一的元素关联一个不唯一的可重复的分数，按分数<strong>从小到大</strong>排序<br>
-ZADD zset score1 key1 score2 key2<br>
+<p>有序集合，每一个唯一的元素关联一个不唯一的可重复的分数，按分数<strong>从小到大</strong>排序</p>
+</blockquote>
+<p>ZADD zset score1 key1 score2 key2<br>
 ZREM zset key<br>
 ZRANGE zset start end [WITHSCORES]  //（带分数的）输出<br>
 ZCARD zset // 成员数量<br>
@@ -292,7 +303,6 @@ ZSCORE zset key // 输出元素对应的分数<br>
 ZRANK zset key // 输出元素分数的排名（从小到大的排名）<br>
 ZREVRANK // 从大到小的排名<br>
 ZCOUNT zset min max // 范围内的成员数量</p>
-</blockquote>
 <h3>HASH</h3>
 <p>HSET hash key val<br>
 HGET hash key<br>
