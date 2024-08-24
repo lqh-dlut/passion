@@ -85,7 +85,6 @@ HDEL hash key
 HEXISTS hash key
 
 
-
 ### STREAM
 XADD stream *  field message // * 表示随机消息id，id可自定义[time-number] 返回的是消息id的值
 XLEN stream 
@@ -97,11 +96,50 @@ XREAD COUNT 3 BLOCK 10000  STREAMS streamtest $   // **用' $ '表示从现在�
 > consumer group 消费者组
 
 XGROUP CREAT stream group id MKSTREAM  // 创建消费者组 id表示该消费者组从何处开始读取信息，可省略使用SETID命令单独设置，而MKSTREAM表示若不存在则新创建一个stream
+XGROUP CREATE/DELCONSUMER stream group consumer  // 加入/删除消费者
+XREADGROUP GROUP group consumer COUNT num BLOCK time STREAMS stream id  // 为consumer读取消息，id为0表示从一开始开始读取，**id为' > '表示读取最新的消息**
 
+### GEO 地理位置
 
+GEOADD key longitude latitude member ...   // 添加member经纬信息
+GEOPOS key member  // 显示位置信息
+GEODIST key mem1 mem2 [KM]  [WITHDIST] [WITHCOORD] // 计算量地址的直线距离，默认是米为单位，添加KM转换
+GEORESEARCH key FROMMEMBER mem1 BYRADIUS/ BYBOX num [KM] // 圆形矩形范围内的成员 withdist,withcoord表示附上距离，坐标
 
+### HyperLoglog 估算基数
 
-。">
+> 基数：不重复数，原理使用随机算法计算，精度没那么高但性能好，适合**大量的不需要高精度的数据**，e.g.浏览量
+
+PFADD cardinal key1 key2 ...     // 添加基数 
+PFCOUNT cardinal
+PFMERGE result cardinal1 cardinal2  //合并到result中
+
+### Bitmap 位图
+> 字符串类型的扩展，0和1表示一个bit数组
+
+SETBIT bitmap index val
+SET bitmap '11000101' / '\xC5'   //单独和完整设置bitmap的值，可利用二进制或' \x '转为十六进制方便
+BITCOUNT bitmap start end  //返回bitmap中1的个数
+BITPOS bitmap 0/1 start end  // 出现的第一个0/1的位置 
+
+### Bitfield 位域
+BITFIELD fieldid set [u8/i8/...] #index key
+BITFIELD fieldid get [format] #index
+BITFIELD fieldid INCRBY [u8/i8/...] #index key
+
+### 事务
+MULTI ... EXEC 
+> 使用队列缓存事务中的命令，如果有命令出现错误，不影响其他正确的命令，其他用户的命令不会插入队列中
+
+> 通过conf配置文件实现主从复制
+
+### sentinel 哨兵结点
+
+> 监控，通知，故障转移
+哨兵结点本身也是单节点，一般使用三个哨兵结点实现高可用，通过选举的方式选择新的主节点
+哨兵之间通信使用的是发布/订阅功能
+
+ 。">
 <meta property="og:title" content="Redis">
 <meta property="og:description" content="## Redis
 remote dictionary server 基于内存的数据存储系统（数据库，缓存，消息队列）
@@ -178,7 +216,6 @@ HDEL hash key
 HEXISTS hash key
 
 
-
 ### STREAM
 XADD stream *  field message // * 表示随机消息id，id可自定义[time-number] 返回的是消息id的值
 XLEN stream 
@@ -190,11 +227,50 @@ XREAD COUNT 3 BLOCK 10000  STREAMS streamtest $   // **用' $ '表示从现在�
 > consumer group 消费者组
 
 XGROUP CREAT stream group id MKSTREAM  // 创建消费者组 id表示该消费者组从何处开始读取信息，可省略使用SETID命令单独设置，而MKSTREAM表示若不存在则新创建一个stream
+XGROUP CREATE/DELCONSUMER stream group consumer  // 加入/删除消费者
+XREADGROUP GROUP group consumer COUNT num BLOCK time STREAMS stream id  // 为consumer读取消息，id为0表示从一开始开始读取，**id为' > '表示读取最新的消息**
 
+### GEO 地理位置
 
+GEOADD key longitude latitude member ...   // 添加member经纬信息
+GEOPOS key member  // 显示位置信息
+GEODIST key mem1 mem2 [KM]  [WITHDIST] [WITHCOORD] // 计算量地址的直线距离，默认是米为单位，添加KM转换
+GEORESEARCH key FROMMEMBER mem1 BYRADIUS/ BYBOX num [KM] // 圆形矩形范围内的成员 withdist,withcoord表示附上距离，坐标
 
+### HyperLoglog 估算基数
 
-。">
+> 基数：不重复数，原理使用随机算法计算，精度没那么高但性能好，适合**大量的不需要高精度的数据**，e.g.浏览量
+
+PFADD cardinal key1 key2 ...     // 添加基数 
+PFCOUNT cardinal
+PFMERGE result cardinal1 cardinal2  //合并到result中
+
+### Bitmap 位图
+> 字符串类型的扩展，0和1表示一个bit数组
+
+SETBIT bitmap index val
+SET bitmap '11000101' / '\xC5'   //单独和完整设置bitmap的值，可利用二进制或' \x '转为十六进制方便
+BITCOUNT bitmap start end  //返回bitmap中1的个数
+BITPOS bitmap 0/1 start end  // 出现的第一个0/1的位置 
+
+### Bitfield 位域
+BITFIELD fieldid set [u8/i8/...] #index key
+BITFIELD fieldid get [format] #index
+BITFIELD fieldid INCRBY [u8/i8/...] #index key
+
+### 事务
+MULTI ... EXEC 
+> 使用队列缓存事务中的命令，如果有命令出现错误，不影响其他正确的命令，其他用户的命令不会插入队列中
+
+> 通过conf配置文件实现主从复制
+
+### sentinel 哨兵结点
+
+> 监控，通知，故障转移
+哨兵结点本身也是单节点，一般使用三个哨兵结点实现高可用，通过选举的方式选择新的主节点
+哨兵之间通信使用的是发布/订阅功能
+
+ 。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://lqh-dlut.github.io/passion/post/Redis.html">
 <meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
@@ -333,7 +409,47 @@ XREAD COUNT 3 BLOCK 10000  STREAMS streamtest $   // <strong>用' $ '表示从�
 <blockquote>
 <p>consumer group 消费者组</p>
 </blockquote>
-<p>XGROUP CREAT stream group id MKSTREAM  // 创建消费者组 id表示该消费者组从何处开始读取信息，可省略使用SETID命令单独设置，而MKSTREAM表示若不存在则新创建一个stream</p></div>
+<p>XGROUP CREAT stream group id MKSTREAM  // 创建消费者组 id表示该消费者组从何处开始读取信息，可省略使用SETID命令单独设置，而MKSTREAM表示若不存在则新创建一个stream<br>
+XGROUP CREATE/DELCONSUMER stream group consumer  // 加入/删除消费者<br>
+XREADGROUP GROUP group consumer COUNT num BLOCK time STREAMS stream id  // 为consumer读取消息，id为0表示从一开始开始读取，<strong>id为' &gt; '表示读取最新的消息</strong></p>
+<h3>GEO 地理位置</h3>
+<p>GEOADD key longitude latitude member ...   // 添加member经纬信息<br>
+GEOPOS key member  // 显示位置信息<br>
+GEODIST key mem1 mem2 [KM]  [WITHDIST] [WITHCOORD] // 计算量地址的直线距离，默认是米为单位，添加KM转换<br>
+GEORESEARCH key FROMMEMBER mem1 BYRADIUS/ BYBOX num [KM] // 圆形矩形范围内的成员 withdist,withcoord表示附上距离，坐标</p>
+<h3>HyperLoglog 估算基数</h3>
+<blockquote>
+<p>基数：不重复数，原理使用随机算法计算，精度没那么高但性能好，适合<strong>大量的不需要高精度的数据</strong>，e.g.浏览量</p>
+</blockquote>
+<p>PFADD cardinal key1 key2 ...     // 添加基数<br>
+PFCOUNT cardinal<br>
+PFMERGE result cardinal1 cardinal2  //合并到result中</p>
+<h3>Bitmap 位图</h3>
+<blockquote>
+<p>字符串类型的扩展，0和1表示一个bit数组</p>
+</blockquote>
+<p>SETBIT bitmap index val<br>
+SET bitmap "11000101" / "\xC5"   //单独和完整设置bitmap的值，可利用二进制或" \x "转为十六进制方便<br>
+BITCOUNT bitmap start end  //返回bitmap中1的个数<br>
+BITPOS bitmap 0/1 start end  // 出现的第一个0/1的位置</p>
+<h3>Bitfield 位域</h3>
+<p>BITFIELD fieldid set [u8/i8/...] #index key<br>
+BITFIELD fieldid get [format] #index<br>
+BITFIELD fieldid INCRBY [u8/i8/...] #index key</p>
+<h3>事务</h3>
+<p>MULTI ... EXEC</p>
+<blockquote>
+<p>使用队列缓存事务中的命令，如果有命令出现错误，不影响其他正确的命令，其他用户的命令不会插入队列中</p>
+</blockquote>
+<blockquote>
+<p>通过conf配置文件实现主从复制</p>
+</blockquote>
+<h3>sentinel 哨兵结点</h3>
+<blockquote>
+<p>监控，通知，故障转移<br>
+哨兵结点本身也是单节点，一般使用三个哨兵结点实现高可用，通过选举的方式选择新的主节点<br>
+哨兵之间通信使用的是发布/订阅功能</p>
+</blockquote></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
