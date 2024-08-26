@@ -18,6 +18,20 @@ git commit -m "comment"
 git push <远程仓库/默认origin> <本地分支/默认当前>
 ```
 
+> _如果只是对原来文件进行修改而没有新文件可以使用_
+
+```
+git commit -a -m "comment"
+git commit -am "comment"
+```
+
+> 查看git提交记录
+
+```
+git log
+git log --oneline // 只显示一行内容
+git log --all --graph --oneline --decorate  // 图形化显示分支
+```
 ### 项目与仓库的连接和重置
 
 > 取消repos_name仓库连接
@@ -45,4 +59,44 @@ fatal: Could not read from remote repository.
 
 ### Git的一些概念
 ![image](https://github.com/user-attachments/assets/5962bdc3-6a99-4577-a331-82fde9ce0ff5)
+
+#### Branch 分支
+```
+git branch // 查看分支列表
+git branch branch-name // 创建branch
+git switch branch-name  // 切换分支
+git merge branch-name  // 合并分支（到当前所在分支）
+git branch -d branch-name // 删除已经合并的分支
+git branch -D branch-name // 强制删除未合并分支
+```
+
+> 合并分支后还需要**手动**删除分支
+
+### Rebase 
+
+> rebase后跟的branch2是不变的，branch1跟在后面
+
+```
+git switch branch1
+git rebase branch2
+```
+
+### Cherry-pick
+
+> 将其他branch中的其中一次commit单独复刻到自己的branch中
+
+`git cherry-pick git-id`
+
+### .gitignore
+
+
+> 在gitignore文件中简化别名，git lg => git log --all --graph --oneline --decorate
+
+```
+[alias]
+    lg = log --all --graph --oneline --decorate
+```
+
+
+
 

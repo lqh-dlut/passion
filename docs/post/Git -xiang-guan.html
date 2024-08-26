@@ -30,6 +30,20 @@ git commit -m 'comment'
 git push <远程仓库/默认origin> <本地分支/默认当前>
 ```
 
+> _如果只是对原来文件进行修改而没有新文件可以使用_
+
+```
+git commit -a -m 'comment'
+git commit -am 'comment'
+```
+
+> 查看git提交记录
+
+```
+git log
+git log --oneline // 只显示一行内容
+git log --all --graph --oneline --decorate  // 图形化显示分支
+```
 ### 项目与仓库的连接和重置
 
 > 取消repos_name仓库连接
@@ -57,6 +71,46 @@ fatal: Could not read from remote repository.
 
 ### Git的一些概念
 ![image](https://github.com/user-attachments/assets/5962bdc3-6a99-4577-a331-82fde9ce0ff5)
+
+#### Branch 分支
+```
+git branch // 查看分支列表
+git branch branch-name // 创建branch
+git switch branch-name  // 切换分支
+git merge branch-name  // 合并分支（到当前所在分支）
+git branch -d branch-name // 删除已经合并的分支
+git branch -D branch-name // 强制删除未合并分支
+```
+
+> 合并分支后还需要**手动**删除分支
+
+### Rebase 
+
+> rebase后跟的branch2是不变的，branch1跟在后面
+
+```
+git switch branch1
+git rebase branch2
+```
+
+### Cherry-pick
+
+> 将其他branch中的其中一次commit单独复刻到自己的branch中
+
+`git cherry-pick git-id`
+
+### .gitignore
+
+
+> 在gitignore文件中简化别名，git lg => git log --all --graph --oneline --decorate
+
+```
+[alias]
+    lg = log --all --graph --oneline --decorate
+```
+
+
+
 
 。">
 <meta property="og:title" content="Git 相关">
@@ -80,6 +134,20 @@ git commit -m 'comment'
 git push <远程仓库/默认origin> <本地分支/默认当前>
 ```
 
+> _如果只是对原来文件进行修改而没有新文件可以使用_
+
+```
+git commit -a -m 'comment'
+git commit -am 'comment'
+```
+
+> 查看git提交记录
+
+```
+git log
+git log --oneline // 只显示一行内容
+git log --all --graph --oneline --decorate  // 图形化显示分支
+```
 ### 项目与仓库的连接和重置
 
 > 取消repos_name仓库连接
@@ -107,6 +175,46 @@ fatal: Could not read from remote repository.
 
 ### Git的一些概念
 ![image](https://github.com/user-attachments/assets/5962bdc3-6a99-4577-a331-82fde9ce0ff5)
+
+#### Branch 分支
+```
+git branch // 查看分支列表
+git branch branch-name // 创建branch
+git switch branch-name  // 切换分支
+git merge branch-name  // 合并分支（到当前所在分支）
+git branch -d branch-name // 删除已经合并的分支
+git branch -D branch-name // 强制删除未合并分支
+```
+
+> 合并分支后还需要**手动**删除分支
+
+### Rebase 
+
+> rebase后跟的branch2是不变的，branch1跟在后面
+
+```
+git switch branch1
+git rebase branch2
+```
+
+### Cherry-pick
+
+> 将其他branch中的其中一次commit单独复刻到自己的branch中
+
+`git cherry-pick git-id`
+
+### .gitignore
+
+
+> 在gitignore文件中简化别名，git lg => git log --all --graph --oneline --decorate
+
+```
+[alias]
+    lg = log --all --graph --oneline --decorate
+```
+
+
+
 
 。">
 <meta property="og:type" content="article">
@@ -198,6 +306,19 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <pre class="notranslate"><code class="notranslate">git commit -m "comment"
 git push &lt;远程仓库/默认origin&gt; &lt;本地分支/默认当前&gt;
 </code></pre>
+<blockquote>
+<p><em>如果只是对原来文件进行修改而没有新文件可以使用</em></p>
+</blockquote>
+<pre class="notranslate"><code class="notranslate">git commit -a -m "comment"
+git commit -am "comment"
+</code></pre>
+<blockquote>
+<p>查看git提交记录</p>
+</blockquote>
+<pre class="notranslate"><code class="notranslate">git log
+git log --oneline // 只显示一行内容
+git log --all --graph --oneline --decorate  // 图形化显示分支
+</code></pre>
 <h3>项目与仓库的连接和重置</h3>
 <blockquote>
 <p>取消repos_name仓库连接</p>
@@ -220,7 +341,37 @@ git remote -v
 fatal: Could not read from remote repository.
 </code></pre>
 <h3>Git的一些概念</h3>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/5962bdc3-6a99-4577-a331-82fde9ce0ff5"><img src="https://github.com/user-attachments/assets/5962bdc3-6a99-4577-a331-82fde9ce0ff5" alt="image" style="max-width: 100%;"></a></p></div>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/5962bdc3-6a99-4577-a331-82fde9ce0ff5"><img src="https://github.com/user-attachments/assets/5962bdc3-6a99-4577-a331-82fde9ce0ff5" alt="image" style="max-width: 100%;"></a></p>
+<h4>Branch 分支</h4>
+<pre class="notranslate"><code class="notranslate">git branch // 查看分支列表
+git branch branch-name // 创建branch
+git switch branch-name  // 切换分支
+git merge branch-name  // 合并分支（到当前所在分支）
+git branch -d branch-name // 删除已经合并的分支
+git branch -D branch-name // 强制删除未合并分支
+</code></pre>
+<blockquote>
+<p>合并分支后还需要<strong>手动</strong>删除分支</p>
+</blockquote>
+<h3>Rebase</h3>
+<blockquote>
+<p>rebase后跟的branch2是不变的，branch1跟在后面</p>
+</blockquote>
+<pre class="notranslate"><code class="notranslate">git switch branch1
+git rebase branch2
+</code></pre>
+<h3>Cherry-pick</h3>
+<blockquote>
+<p>将其他branch中的其中一次commit单独复刻到自己的branch中</p>
+</blockquote>
+<p><code class="notranslate">git cherry-pick git-id</code></p>
+<h3>.gitignore</h3>
+<blockquote>
+<p>在gitignore文件中简化别名，git lg =&gt; git log --all --graph --oneline --decorate</p>
+</blockquote>
+<pre class="notranslate"><code class="notranslate">[alias]
+    lg = log --all --graph --oneline --decorate
+</code></pre></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
