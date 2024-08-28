@@ -23,11 +23,10 @@
 
 `git status`
 
-> 提交注释并上传
+> 从暂存区提交到本地仓库
 
 ```
 git commit -m 'comment'
-git push <远程仓库/默认origin> <本地分支/默认当前>
 ```
 
 > _如果只是对原来文件进行修改而没有新文件可以使用_
@@ -37,10 +36,21 @@ git commit -a -m 'comment'
 git commit -am 'comment'
 ```
 
+> 撤销commit的内容
+
+```
+git reset --soft HEAD~n  // 撤销n次commit
+```
+
+> 提交到远程仓库
+
+`git push <远程仓库/默认origin> <本地分支/默认当前>`
+
+
 > 查看git提交记录
 
 ```
-git log
+git log [branch]   // 显示分支的commit记录，其他分支会包括master中的
 git log --oneline // 只显示一行内容
 git log --all --graph --oneline --decorate  // 图形化显示分支
 ```
@@ -127,11 +137,10 @@ git rebase branch2
 
 `git status`
 
-> 提交注释并上传
+> 从暂存区提交到本地仓库
 
 ```
 git commit -m 'comment'
-git push <远程仓库/默认origin> <本地分支/默认当前>
 ```
 
 > _如果只是对原来文件进行修改而没有新文件可以使用_
@@ -141,10 +150,21 @@ git commit -a -m 'comment'
 git commit -am 'comment'
 ```
 
+> 撤销commit的内容
+
+```
+git reset --soft HEAD~n  // 撤销n次commit
+```
+
+> 提交到远程仓库
+
+`git push <远程仓库/默认origin> <本地分支/默认当前>`
+
+
 > 查看git提交记录
 
 ```
-git log
+git log [branch]   // 显示分支的commit记录，其他分支会包括master中的
 git log --oneline // 只显示一行内容
 git log --all --graph --oneline --decorate  // 图形化显示分支
 ```
@@ -301,10 +321,9 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </blockquote>
 <p><code class="notranslate">git status</code></p>
 <blockquote>
-<p>提交注释并上传</p>
+<p>从暂存区提交到本地仓库</p>
 </blockquote>
 <pre class="notranslate"><code class="notranslate">git commit -m "comment"
-git push &lt;远程仓库/默认origin&gt; &lt;本地分支/默认当前&gt;
 </code></pre>
 <blockquote>
 <p><em>如果只是对原来文件进行修改而没有新文件可以使用</em></p>
@@ -313,9 +332,18 @@ git push &lt;远程仓库/默认origin&gt; &lt;本地分支/默认当前&gt;
 git commit -am "comment"
 </code></pre>
 <blockquote>
+<p>撤销commit的内容</p>
+</blockquote>
+<pre class="notranslate"><code class="notranslate">git reset --soft HEAD~n  // 撤销n次commit
+</code></pre>
+<blockquote>
+<p>提交到远程仓库</p>
+</blockquote>
+<p><code class="notranslate">git push &lt;远程仓库/默认origin&gt; &lt;本地分支/默认当前&gt;</code></p>
+<blockquote>
 <p>查看git提交记录</p>
 </blockquote>
-<pre class="notranslate"><code class="notranslate">git log
+<pre class="notranslate"><code class="notranslate">git log [branch]   // 显示分支的commit记录，其他分支会包括master中的
 git log --oneline // 只显示一行内容
 git log --all --graph --oneline --decorate  // 图形化显示分支
 </code></pre>

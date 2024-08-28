@@ -11,11 +11,10 @@
 
 `git status`
 
-> 提交注释并上传
+> 从暂存区提交到本地仓库
 
 ```
 git commit -m "comment"
-git push <远程仓库/默认origin> <本地分支/默认当前>
 ```
 
 > _如果只是对原来文件进行修改而没有新文件可以使用_
@@ -25,10 +24,21 @@ git commit -a -m "comment"
 git commit -am "comment"
 ```
 
+> 撤销commit的内容
+
+```
+git reset --soft HEAD~n  // 撤销n次commit
+```
+
+> 提交到远程仓库
+
+`git push <远程仓库/默认origin> <本地分支/默认当前>`
+
+
 > 查看git提交记录
 
 ```
-git log
+git log [branch]   // 显示分支的commit记录，其他分支会包括master中的
 git log --oneline // 只显示一行内容
 git log --all --graph --oneline --decorate  // 图形化显示分支
 ```
