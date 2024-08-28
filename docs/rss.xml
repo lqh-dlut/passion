@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>StudyAllDay</title><link>https://lqh-dlut.github.io/passion</link><description>hello</description><copyright>StudyAllDay</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://lqh-dlut.github.io/passion</link></image><lastBuildDate>Wed, 28 Aug 2024 05:37:34 +0000</lastBuildDate><managingEditor>StudyAllDay</managingEditor><ttl>60</ttl><webMaster>StudyAllDay</webMaster><item><title>Git 相关</title><link>https://lqh-dlut.github.io/passion/post/Git%20-xiang-guan.html</link><description>### 项目上传与更新&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>StudyAllDay</title><link>https://lqh-dlut.github.io/passion</link><description>hello</description><copyright>StudyAllDay</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://lqh-dlut.github.io/passion</link></image><lastBuildDate>Wed, 28 Aug 2024 09:12:21 +0000</lastBuildDate><managingEditor>StudyAllDay</managingEditor><ttl>60</ttl><webMaster>StudyAllDay</webMaster><item><title>Git 相关</title><link>https://lqh-dlut.github.io/passion/post/Git%20-xiang-guan.html</link><description>### 项目上传与更新&#13;
 &gt; 添加内容到git暂存区&#13;
 &#13;
 ```git add [./PATH]``` &#13;
@@ -43,6 +43,17 @@ git log [branch]   // 显示分支的commit记录，其他分支会包括master�
 git log --oneline // 只显示一行内容&#13;
 git log --all --graph --oneline --decorate  // 图形化显示分支&#13;
 ```&#13;
+&#13;
+&gt; 在远程github中更新的内容如何同步&#13;
+&#13;
+```&#13;
+git fetch &lt;remote_repositories&gt; &lt;remote_branch&gt;:&lt;tmp branch name&gt;  // 下载远程仓库分支中最新的提交消息 通过 : 取别名&#13;
+git diff &lt;branch&gt;&#13;
+git merge &lt;branch&gt;&#13;
+&#13;
+git pull &lt;remote_repo&gt; &lt;remote_branch&gt; // 自动下载并合并到当前所在的本地仓库分支中，更方便但不如分布清晰&#13;
+```&#13;
+&#13;
 ### 项目与仓库的连接和重置&#13;
 &#13;
 &gt; 取消repos_name仓库连接&#13;

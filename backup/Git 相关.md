@@ -42,6 +42,17 @@ git log [branch]   // 显示分支的commit记录，其他分支会包括master�
 git log --oneline // 只显示一行内容
 git log --all --graph --oneline --decorate  // 图形化显示分支
 ```
+
+> 在远程github中更新的内容如何同步
+
+```
+git fetch <remote_repositories> <remote_branch>:<tmp branch name>  // 下载远程仓库分支中最新的提交消息 通过 : 取别名
+git diff <branch>
+git merge <branch>
+
+git pull <remote_repo> <remote_branch> // 自动下载并合并到当前所在的本地仓库分支中，更方便但不如分布清晰
+```
+
 ### 项目与仓库的连接和重置
 
 > 取消repos_name仓库连接
