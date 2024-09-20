@@ -34,7 +34,15 @@ open后要`f.close()`，或 ` with open() as f:`
 赋值 是在同一个内存空间
 copy（浅拷贝）只复制一层，子集内的是同一个内存空间
 deepcopy深拷贝，完全重建一个集合
-。">
+
+### zip
+同时处理若干个列表
+
+```
+d = {}
+ for n, s, b in zip(name, score, bonus):
+    d[n] = s+b
+```。">
 <meta property="og:title" content="Python相关">
 <meta property="og:description" content="### open()函数
 `open('path/file.format', encoding='格式[gbk]', '打开模式[r]')`
@@ -60,7 +68,15 @@ open后要`f.close()`，或 ` with open() as f:`
 赋值 是在同一个内存空间
 copy（浅拷贝）只复制一层，子集内的是同一个内存空间
 deepcopy深拷贝，完全重建一个集合
-。">
+
+### zip
+同时处理若干个列表
+
+```
+d = {}
+ for n, s, b in zip(name, score, bonus):
+    d[n] = s+b
+```。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://lqh-dlut.github.io/passion/post/Python-xiang-guan.html">
 <meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
@@ -147,7 +163,13 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <h3>copy 与 deepcopy</h3>
 <p>赋值 是在同一个内存空间<br>
 copy（浅拷贝）只复制一层，子集内的是同一个内存空间<br>
-deepcopy深拷贝，完全重建一个集合</p></div>
+deepcopy深拷贝，完全重建一个集合</p>
+<h3>zip</h3>
+<p>同时处理若干个列表</p>
+<pre class="notranslate"><code class="notranslate">d = {}
+ for n, s, b in zip(name, score, bonus):
+    d[n] = s+b
+</code></pre></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

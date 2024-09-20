@@ -22,3 +22,12 @@ open后要`f.close()`，或 ` with open() as f:`
 赋值 是在同一个内存空间
 copy（浅拷贝）只复制一层，子集内的是同一个内存空间
 deepcopy深拷贝，完全重建一个集合
+
+### zip
+同时处理若干个列表
+
+```
+d = {}
+ for n, s, b in zip(name, score, bonus):
+    d[n] = s+b
+```
