@@ -104,7 +104,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <div class="markdown-body" id="postBody"><p>###视图函数</p>
 <div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-k">from</span> <span class="pl-s1">markupsafe</span> <span class="pl-k">import</span> <span class="pl-s1">escape</span>
 
-<span class="pl-en">@<span class="pl-s1">app</span>.<span class="pl-en">route</span>(<span class="pl-s">'/user/&lt;name&gt;'</span>)</span>
+<span class="pl-en">@<span class="pl-s1">app</span>.<span class="pl-c1">route</span>(<span class="pl-s">'/user/&lt;name&gt;'</span>)</span>
 <span class="pl-k">def</span> <span class="pl-en">user_page</span>(<span class="pl-s1">name</span>):
     <span class="pl-k">return</span> <span class="pl-s">f'User: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-en">escape</span>(<span class="pl-s1">name</span>)<span class="pl-kos">}</span></span>'</span></pre></div>
 <blockquote>
@@ -116,7 +116,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <li>作为代表某个路由的<strong>端点endpoint</strong></li>
 </ol>
 <p>包含变量和运算逻辑的 HTML 或其他格式的文本叫做模板，执行这些变量替换和逻辑计算工作的过程被称为渲染</p>
-<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-s1">app</span>.<span class="pl-s1">config</span>[<span class="pl-s">'SQLALCHEMY_TRACK_MODIFICATIONS'</span>] <span class="pl-c1">=</span> <span class="pl-c1">False</span>  <span class="pl-c"># 关闭对模型修改的监控</span></pre></div>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-s1">app</span>.<span class="pl-c1">config</span>[<span class="pl-s">'SQLALCHEMY_TRACK_MODIFICATIONS'</span>] <span class="pl-c1">=</span> <span class="pl-c1">False</span>  <span class="pl-c"># 关闭对模型修改的监控</span></pre></div>
 <h3>FLASK数据库</h3>
 <p><a href="https://read.helloflask.com/database/#_4" rel="nofollow">Flask-SQLAlchemy</a></p>
 <blockquote>
@@ -131,20 +131,20 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </blockquote>
 <p><strong>创建数据库表</strong></p>
 <div class="highlight highlight-source-python"><pre class="notranslate">(<span class="pl-s1">env</span>) $ <span class="pl-s1">flask</span> <span class="pl-s1">shell</span>
-<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-k">from</span> <span class="pl-s1">app</span> <span class="pl-k">import</span> <span class="pl-s1">db</span>
-<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">db</span>.<span class="pl-en">create_all</span>()
+<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">from</span> <span class="pl-s1">app</span> <span class="pl-k">import</span> <span class="pl-s1">db</span>
+<span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">db</span>.<span class="pl-c1">create_all</span>()
 
 <span class="pl-c">#app.py</span>
-<span class="pl-k">class</span> <span class="pl-v">Movie</span>(<span class="pl-s1">db</span>.<span class="pl-v">Model</span>):
-    <span class="pl-s1">id</span> <span class="pl-c1">=</span> <span class="pl-s1">db</span>.<span class="pl-v">Column</span>(<span class="pl-s1">db</span>.<span class="pl-v">Integer</span>, <span class="pl-s1">primary_key</span><span class="pl-c1">=</span><span class="pl-c1">True</span>)
-    <span class="pl-s1">title</span> <span class="pl-c1">=</span> <span class="pl-s1">db</span>.<span class="pl-v">Column</span>(<span class="pl-s1">db</span>.<span class="pl-v">String</span>(<span class="pl-c1">20</span>))
-    <span class="pl-s1">year</span> <span class="pl-c1">=</span> <span class="pl-s1">db</span>.<span class="pl-v">Column</span>(<span class="pl-s1">db</span>.<span class="pl-v">String</span>(<span class="pl-c1">4</span>))</pre></div>
+<span class="pl-k">class</span> <span class="pl-v">Movie</span>(<span class="pl-s1">db</span>.<span class="pl-c1">Model</span>):
+    <span class="pl-s1">id</span> <span class="pl-c1">=</span> <span class="pl-s1">db</span>.<span class="pl-c1">Column</span>(<span class="pl-s1">db</span>.<span class="pl-c1">Integer</span>, <span class="pl-s1">primary_key</span><span class="pl-c1">=</span><span class="pl-c1">True</span>)
+    <span class="pl-s1">title</span> <span class="pl-c1">=</span> <span class="pl-s1">db</span>.<span class="pl-c1">Column</span>(<span class="pl-s1">db</span>.<span class="pl-c1">String</span>(<span class="pl-c1">20</span>))
+    <span class="pl-s1">year</span> <span class="pl-c1">=</span> <span class="pl-s1">db</span>.<span class="pl-c1">Column</span>(<span class="pl-s1">db</span>.<span class="pl-c1">String</span>(<span class="pl-c1">4</span>))</pre></div>
 <blockquote>
 <p>上面打开 Python Shell 使用的是 flask shell命令，而不是 python。使用这个命令启动的 Python Shell 激活了“程序上下文”，它包含一些特殊变量，这对于某些操作是必须的（比如上面的 db.create_all()调用）。请记住，后续的 Python Shell 都会使用这个命令打开。</p>
 </blockquote>
 <p><strong>自定义命令initdb</strong></p>
-<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-en">@<span class="pl-s1">click</span>.<span class="pl-en">option</span>(<span class="pl-s">'--drop'</span>, <span class="pl-s1">is_flag</span><span class="pl-c1">=</span><span class="pl-c1">True</span>, <span class="pl-s1">help</span><span class="pl-c1">=</span><span class="pl-s">'Create after drop.'</span>)  <span class="pl-c"># 设置选项</span></span>
-<span class="pl-en">@<span class="pl-s1">app</span>.<span class="pl-s1">cli</span>.<span class="pl-en">command</span>()  <span class="pl-c"># 注册为命令，可以传入 name 参数来自定义命令</span></span>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-en">@<span class="pl-s1">click</span>.<span class="pl-c1">option</span>(<span class="pl-s">'--drop'</span>, <span class="pl-s1">is_flag</span><span class="pl-c1">=</span><span class="pl-c1">True</span>, <span class="pl-s1">help</span><span class="pl-c1">=</span><span class="pl-s">'Create after drop.'</span>)  <span class="pl-c"># 设置选项</span></span>
+<span class="pl-en">@<span class="pl-s1">app</span>.<span class="pl-c1">cli</span>.<span class="pl-c1">command</span>()  <span class="pl-c"># 注册为命令，可以传入 name 参数来自定义命令</span></span>
 <span class="pl-k">def</span> <span class="pl-en">initdb</span>(<span class="pl-s1">drop</span>):
 ...</pre></div>
 <blockquote>
@@ -163,23 +163,23 @@ initdb作用：在env环境下使用调用函数进行数据库表的构造</p>
 <ol>
 <li>新增数据</li>
 </ol>
-<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">user</span> <span class="pl-c1">=</span> <span class="pl-v">User</span>(<span class="pl-s1">name</span><span class="pl-c1">=</span><span class="pl-s">'Grey Li'</span>)  <span class="pl-c"># 创建一个 User 记录</span>
-<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">m1</span> <span class="pl-c1">=</span> <span class="pl-v">Movie</span>(<span class="pl-s1">title</span><span class="pl-c1">=</span><span class="pl-s">'Leon'</span>, <span class="pl-s1">year</span><span class="pl-c1">=</span><span class="pl-s">'1994'</span>)  <span class="pl-c"># 创建一个 Movie 记录</span>
-<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">m2</span> <span class="pl-c1">=</span> <span class="pl-v">Movie</span>(<span class="pl-s1">title</span><span class="pl-c1">=</span><span class="pl-s">'Mahjong'</span>, <span class="pl-s1">year</span><span class="pl-c1">=</span><span class="pl-s">'1996'</span>)  <span class="pl-c"># 再创建一个 Movie 记录</span>
-<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">db</span>.<span class="pl-s1">session</span>.<span class="pl-en">add</span>(<span class="pl-s1">user</span>)  <span class="pl-c"># 把新创建的记录添加到数据库会话</span>
-<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">db</span>.<span class="pl-s1">session</span>.<span class="pl-en">add</span>(<span class="pl-s1">m1</span>)
-<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">db</span>.<span class="pl-s1">session</span>.<span class="pl-en">add</span>(<span class="pl-s1">m2</span>)</pre></div>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">user</span> <span class="pl-c1">=</span> <span class="pl-en">User</span>(<span class="pl-s1">name</span><span class="pl-c1">=</span><span class="pl-s">'Grey Li'</span>)  <span class="pl-c"># 创建一个 User 记录</span>
+<span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">m1</span> <span class="pl-c1">=</span> <span class="pl-en">Movie</span>(<span class="pl-s1">title</span><span class="pl-c1">=</span><span class="pl-s">'Leon'</span>, <span class="pl-s1">year</span><span class="pl-c1">=</span><span class="pl-s">'1994'</span>)  <span class="pl-c"># 创建一个 Movie 记录</span>
+<span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">m2</span> <span class="pl-c1">=</span> <span class="pl-en">Movie</span>(<span class="pl-s1">title</span><span class="pl-c1">=</span><span class="pl-s">'Mahjong'</span>, <span class="pl-s1">year</span><span class="pl-c1">=</span><span class="pl-s">'1996'</span>)  <span class="pl-c"># 再创建一个 Movie 记录</span>
+<span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">db</span>.<span class="pl-c1">session</span>.<span class="pl-c1">add</span>(<span class="pl-s1">user</span>)  <span class="pl-c"># 把新创建的记录添加到数据库会话</span>
+<span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">db</span>.<span class="pl-c1">session</span>.<span class="pl-c1">add</span>(<span class="pl-s1">m1</span>)
+<span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">db</span>.<span class="pl-c1">session</span>.<span class="pl-c1">add</span>(<span class="pl-s1">m2</span>)</pre></div>
 <ol start="2">
 <li>删除数据</li>
 </ol>
-<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">movie</span> <span class="pl-c1">=</span> <span class="pl-v">Movie</span>.<span class="pl-s1">query</span>.<span class="pl-en">get</span>(<span class="pl-c1">1</span>)
-<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">db</span>.<span class="pl-s1">session</span>.<span class="pl-en">delete</span>(<span class="pl-s1">movie</span>)  <span class="pl-c"># 使用 db.session.delete() 方法删除记录，传入模型实例</span>
-<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">db</span>.<span class="pl-s1">session</span>.<span class="pl-en">commit</span>()  <span class="pl-c"># 提交改动</span></pre></div>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">movie</span> <span class="pl-c1">=</span> <span class="pl-v">Movie</span>.<span class="pl-c1">query</span>.<span class="pl-c1">get</span>(<span class="pl-c1">1</span>)
+<span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">db</span>.<span class="pl-c1">session</span>.<span class="pl-c1">delete</span>(<span class="pl-s1">movie</span>)  <span class="pl-c"># 使用 db.session.delete() 方法删除记录，传入模型实例</span>
+<span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">db</span>.<span class="pl-c1">session</span>.<span class="pl-c1">commit</span>()  <span class="pl-c"># 提交改动</span></pre></div>
 <ol start="3">
 <li>查找数据</li>
 </ol>
 <div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-en">filter</span>() <span class="pl-s1">过滤</span>
-<span class="pl-en">filter_by</span>() <span class="pl-s1">过滤</span>(<span class="pl-s1">相等属性</span>)
+<span class="pl-en">filter_by</span>() <span class="pl-en">过滤</span>(<span class="pl-s1">相等属性</span>)
 <span class="pl-en">order_by</span>() <span class="pl-s1">排序</span>
 <span class="pl-en">group_by</span>() <span class="pl-s1">分组</span></pre></div>
 <p><code class="notranslate">User.query.filter_by(username='john_doe').first()</code><br>
@@ -194,22 +194,22 @@ filter_by()大概是filter()的<strong>真子集</strong>。</p>
 <ol start="4">
 <li>改变数据</li>
 </ol>
-<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">movie</span> <span class="pl-c1">=</span> <span class="pl-v">Movie</span>.<span class="pl-s1">query</span>.<span class="pl-en">get</span>(<span class="pl-c1">2</span>)
-<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">movie</span>.<span class="pl-s1">title</span> <span class="pl-c1">=</span> <span class="pl-s">'WALL-E'</span>  <span class="pl-c"># 直接对实例属性赋予新的值即可</span>
-<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">movie</span>.<span class="pl-s1">year</span> <span class="pl-c1">=</span> <span class="pl-s">'2008'</span>
-<span class="pl-c1">&gt;&gt;</span><span class="pl-c1">&gt;</span> <span class="pl-s1">db</span>.<span class="pl-s1">session</span>.<span class="pl-en">commit</span>()  <span class="pl-c"># 注意仍然需要调用这一行来提交改动</span></pre></div>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">movie</span> <span class="pl-c1">=</span> <span class="pl-v">Movie</span>.<span class="pl-c1">query</span>.<span class="pl-c1">get</span>(<span class="pl-c1">2</span>)
+<span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">movie</span>.<span class="pl-c1">title</span> <span class="pl-c1">=</span> <span class="pl-s">'WALL-E'</span>  <span class="pl-c"># 直接对实例属性赋予新的值即可</span>
+<span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">movie</span>.<span class="pl-c1">year</span> <span class="pl-c1">=</span> <span class="pl-s">'2008'</span>
+<span class="pl-c1">&gt;</span><span class="pl-c1">&gt;&gt;</span> <span class="pl-s1">db</span>.<span class="pl-c1">session</span>.<span class="pl-c1">commit</span>()  <span class="pl-c"># 注意仍然需要调用这一行来提交改动</span></pre></div>
 <h3>app.errorhandler() 装饰器</h3>
 <p>作用与视图函数类似，在发生HTTP错误时被调用</p>
-<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-en">@<span class="pl-s1">app</span>.<span class="pl-en">errorhandler</span>(<span class="pl-v">Exception</span>)</span>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-en">@<span class="pl-s1">app</span>.<span class="pl-c1">errorhandler</span>(<span class="pl-v">Exception</span>)</span>
 <span class="pl-k">def</span> <span class="pl-en">handle_exception</span>(<span class="pl-s1">e</span>):
     <span class="pl-c"># 注意这里捕获的是所有异常</span>
     <span class="pl-k">return</span> <span class="pl-en">render_template</span>(<span class="pl-s">'error.html'</span>, <span class="pl-s1">error</span><span class="pl-c1">=</span><span class="pl-en">str</span>(<span class="pl-s1">e</span>))
 
 <span class="pl-c">### 模板上下文处理函数</span>
 <span class="pl-s">``</span>`<span class="pl-s1">python</span>
-<span class="pl-en">@<span class="pl-s1">app</span>.<span class="pl-s1">context_processor</span></span>
+<span class="pl-en">@<span class="pl-s1">app</span>.<span class="pl-c1">context_processor</span></span>
 <span class="pl-k">def</span> <span class="pl-en">inject_user</span>():  <span class="pl-c"># 函数名可以随意修改</span>
-    <span class="pl-s1">user</span> <span class="pl-c1">=</span> <span class="pl-v">User</span>.<span class="pl-s1">query</span>.<span class="pl-en">first</span>()
+    <span class="pl-s1">user</span> <span class="pl-c1">=</span> <span class="pl-v">User</span>.<span class="pl-c1">query</span>.<span class="pl-c1">first</span>()
     <span class="pl-k">return</span> <span class="pl-en">dict</span>(<span class="pl-s1">user</span><span class="pl-c1">=</span><span class="pl-s1">user</span>)  <span class="pl-c"># 需要返回字典，等同于 return {'user': user}</span></pre></div>
 <blockquote>
 <p>此时render_template()函数中不需要传入<code class="notranslate">user=user</code></p>
