@@ -1,7 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>StudyAllDay</title><link>https://lqh-dlut.github.io/passion</link><description>hello</description><copyright>StudyAllDay</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://lqh-dlut.github.io/passion</link></image><lastBuildDate>Wed, 26 Feb 2025 16:16:32 +0000</lastBuildDate><managingEditor>StudyAllDay</managingEditor><ttl>60</ttl><webMaster>StudyAllDay</webMaster><item><title>算法</title><link>https://lqh-dlut.github.io/passion/post/suan-fa.html</link><description>### day1 2.26
-**704 二分查找**： 注意只有一个元素的情况，循环应该是while(right&gt;=left)而不是while(right&gt;left)
-**27 移除元素**： 原地算法O(1)空间复杂度，使用双指针算法。</description><guid isPermaLink="true">https://lqh-dlut.github.io/passion/post/suan-fa.html</guid><pubDate>Wed, 26 Feb 2025 16:15:53 +0000</pubDate></item><item><title>argoverse2数据preprocessed in DeMo</title><link>https://lqh-dlut.github.io/passion/post/argoverse2-shu-ju-preprocessed%20in%20DeMo.html</link><description>x_positions
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>StudyAllDay</title><link>https://lqh-dlut.github.io/passion</link><description>hello</description><copyright>StudyAllDay</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://lqh-dlut.github.io/passion</link></image><lastBuildDate>Thu, 27 Feb 2025 09:07:02 +0000</lastBuildDate><managingEditor>StudyAllDay</managingEditor><ttl>60</ttl><webMaster>StudyAllDay</webMaster><item><title>算法</title><link>https://lqh-dlut.github.io/passion/post/suan-fa.html</link><description>### day1 2.26
+**704 二分查找**： 注意只有一个元素的情况，循环应该是`while(right&gt;=left)`而不是`while(right&gt;left)`
+**27 移除元素**： 原地算法O(1)空间复杂度，使用双指针算法
+### day2 2.27
+**977 有序数组的平方** 平方 `n**2`, 创建一个全 0 的数组 `new = [0] * len(nums)`
+
+**209 长度最小的子数组** 正无穷 `n = float('inf')` 负无穷 `n = float('-inf')`； **滑动窗口（双指针）**的思路，核心是滑动窗口的**起始位置的移动**
+`while(cs &gt;= target):
+                min_len = min(min_len, fast-slow+1)
+                cs -= nums[slow]
+                slow += 1`
+
+**59 螺旋矩阵** **定义边界**不断循环。</description><guid isPermaLink="true">https://lqh-dlut.github.io/passion/post/suan-fa.html</guid><pubDate>Wed, 26 Feb 2025 16:15:53 +0000</pubDate></item><item><title>argoverse2数据preprocessed in DeMo</title><link>https://lqh-dlut.github.io/passion/post/argoverse2-shu-ju-preprocessed%20in%20DeMo.html</link><description>x_positions
 
 含义：各代理（车辆/行人）在不同时间步的位置坐标（2D坐标，如[X, Y]）。</description><guid isPermaLink="true">https://lqh-dlut.github.io/passion/post/argoverse2-shu-ju-preprocessed%20in%20DeMo.html</guid><pubDate>Tue, 25 Feb 2025 17:09:58 +0000</pubDate></item><item><title>服务器、cuda等注意事项</title><link>https://lqh-dlut.github.io/passion/post/fu-wu-qi-%E3%80%81cuda-deng-zhu-yi-shi-xiang.html</link><description>通过`ls /usr/local/cuda-xxxx  `判断是否安装了xxxx版本的cuda
 
