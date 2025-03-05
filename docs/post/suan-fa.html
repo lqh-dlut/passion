@@ -38,7 +38,8 @@ data = input().split()
 n = int(data[index])
 ```
 **44 开发商购买土地** 
-**todo：暴力优化**
+
+> todo：暴力优化
 
 **链表** 
 `class ListNode: def __init__(self, val, next=None):
@@ -108,7 +109,8 @@ data = input().split()
 n = int(data[index])
 ```
 **44 开发商购买土地** 
-**todo：暴力优化**
+
+> todo：暴力优化
 
 **链表** 
 `class ListNode: def __init__(self, val, next=None):
@@ -237,8 +239,10 @@ set.add(n)
 data = input().split()
 n = int(data[index])
 </code></pre>
-<p><strong>44 开发商购买土地</strong><br>
-<strong>todo：暴力优化</strong></p>
+<p><strong>44 开发商购买土地</strong></p>
+<blockquote>
+<p>todo：暴力优化</p>
+</blockquote>
 <p><strong>链表</strong><br>
 <code class="notranslate">class ListNode: def __init__(self, val, next=None): self.val = val self.next = next </code><br>
 <strong>常用dummy_head作为虚拟头结点，return dummy_head.next</strong></p>
@@ -265,15 +269,18 @@ n = int(data[index])
 <p><a href="https://programmercarl.com/0001.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C.html#_1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C" rel="nofollow"><strong>1 两数之和</strong></a><br>
 <strong>查询一个元素是否出现过，或者一个元素是否在集合里的时候</strong>，就要第一时间想到哈希法。此题<strong>不仅要知道元素有没有遍历过，还要知道这个元素对应的下标</strong>，需要使用 key value结构来存放，key来存元素，value来存下标，那么使用<strong>map</strong>正合适。<br>
 <a href="https://www.runoob.com/python/python-func-enumerate.html" rel="nofollow">enumerate函数用法</a></p>
+<p>day6 3.6</p>
 <p><strong>454 四数相加II</strong></p>
 <p><strong>383 赎金信</strong> 用数组用字典都可以</p>
 <p><a href="https://programmercarl.com/0015.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C.html#%E7%AC%AC15%E9%A2%98-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C" rel="nofollow">15 三数之和</a><br>
 <strong>双指针的思路更简单（i, left, right）</strong><br>
 <strong>注意else只针对他的前一个if，所以可能会用elif</strong><br>
 <strong>判断条件中的and是有顺序的判断的，边界限制一般要放前面</strong></p>
-<p><a href="https://programmercarl.com/0018.%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C.html#%E7%AC%AC18%E9%A2%98-%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C" rel="nofollow">18 四数之和</a><br>
-<strong>todo：双指针法</strong><br>
-<strong>list, dict, set都不是hashable的，字典的键和集合的元素必须是不可变类型（如数字、字符串、元组），列表等可变类型无法哈希，元组tuple可以而且取唯一，因此</strong><code class="notranslate">ans.add(tuple(sorted([nums[i], nums[j], nums[k], val])))</code><br>
+<p><a href="https://programmercarl.com/0018.%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C.html#%E7%AC%AC18%E9%A2%98-%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C" rel="nofollow">18 四数之和</a></p>
+<blockquote>
+<p>todo：双指针法</p>
+</blockquote>
+<p><strong>list, dict, set都不是hashable的，字典的键和集合的元素必须是不可变类型（如数字、字符串、元组），列表等可变类型无法哈希，元组tuple可以而且取唯一，因此</strong><code class="notranslate">ans.add(tuple(sorted([nums[i], nums[j], nums[k], val])))</code><br>
 <strong>布尔值隐式转换为整数</strong> <code class="notranslate">count = (nums[i] == val) + (nums[j] == val)</code></p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
