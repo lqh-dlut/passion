@@ -286,7 +286,28 @@ n = int(data[index])
 <p>todo：双指针法</p>
 </blockquote>
 <p><strong>list, dict, set都不是hashable的，字典的键和集合的元素必须是不可变类型（如数字、字符串、元组），列表等可变类型无法哈希，元组tuple可以而且取唯一，因此</strong><code class="notranslate">ans.add(tuple(sorted([nums[i], nums[j], nums[k], val])))</code><br>
-<strong>布尔值隐式转换为整数</strong> <code class="notranslate">count = (nums[i] == val) + (nums[j] == val)</code></p></div>
+<strong>布尔值隐式转换为整数</strong> <code class="notranslate">count = (nums[i] == val) + (nums[j] == val)</code></p>
+<h3>day7-9 3.8-13</h3>
+<p><strong>344 反转字符串</strong> 双指针，栈，切片<code class="notranslate">s[:] = s[::-1]</code></p>
+<h4>切片list, string, tuple</h4>
+<p>严格<strong>左闭右开</strong>区间 <code class="notranslate">s[start:stop:step]</code><br>
+当start/stop为负数的时候，表示从后往前的第|n|个；当step为负数则是从后往前；<br>
+**注意：**当start小于end，并且step为整数，则输出空</p>
+<p><strong>541 反转字符串II</strong> 切片会自动截取到结尾 <code class="notranslate">res[cur: cur + k] = reverse(res[cur: cur + k])</code> 不需要考虑越界的情况<br>
+常规方法：def reverse + 循环用切片分别处理</p>
+
+
+
+操作类型 | ​字符串是否支持 | ​替代方案
+-- | -- | --
+读取字符或切片 | ✅ | 直接使用 s[i] 或 s[a:b]
+修改单个字符 | ❌ | 转换为列表后修改
+拼接、格式化、替换 | ✅（生成新字符串） | 使用字符串方法
+复杂结构修改 | ❌ | 使用列表或生成器表达式
+
+
+
+<p>更‘Python’的解法：<code class="notranslate">s = s[:p] + s[p: p2][::-1] + s[p2:]</code></p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
