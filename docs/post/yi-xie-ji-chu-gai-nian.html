@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="### 机器学习 Machine Learning: 
+
+1. **选择一个模型结构**（例如逻辑回归，随机森林等）。">
+<meta property="og:title" content="一些基础概念">
+<meta property="og:description" content="### 机器学习 Machine Learning: 
+
+1. **选择一个模型结构**（例如逻辑回归，随机森林等）。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://lqh-dlut.github.io/passion/post/yi-xie-ji-chu-gai-nian.html">
+<meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
+<title>一些基础概念</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">一些基础概念</h1>
+<div class="title-right">
+    <a href="https://lqh-dlut.github.io/passion" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/lqh-dlut/passion/issues/15" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h3>机器学习 Machine Learning:</h3>
+<ol>
+<li>
+<p><strong>选择一个模型结构</strong>（例如逻辑回归，随机森林等）。</p>
+</li>
+<li>
+<p><strong>用训练数据</strong>（输入和输出）输入<strong>模型</strong>。</p>
+</li>
+<li>
+<p><strong>学习算法将输出最优模型</strong>（即具有使训练错误最小化的特定参数的模型）。</p>
+</li>
+</ol>
+<p>​</p>
+<h4>1 引言</h4>
+<p>ML是人工智能领域的技术，分为<strong>监督学习</strong>，<strong>无监督学习</strong>，<strong>强化学习</strong>，<strong>半监督学习</strong></p>
+<h4>2 监督学习</h4>
+<h5>2.1 定义：</h5>
+<p>根据已有的数据集，知道输入和输出结果之间的关系。根据这种已知的关系，训练得到一个最优的模型。</p>
+<p>在监督学习中训练数据既有<strong>特征(feature)又有标签(label)</strong>，通过训练，让机器可以自己找到特征和标签之间的联系，在面对只有特征没有标签的数据时，可以判断出标签。</p>
+<blockquote>
+<p>简单理解：可以把监督学习理解为我们教机器如何做事情。</p>
+</blockquote>
+<h5>2.2 类别：</h5>
+<p>监督学习大致可分为<strong>分类Classification</strong>与<strong>回归Regression</strong>两种，前者目标是将输入数据分到预定义的类别中，后者目标是预测连续数值的输出。</p>
+<h5>2.3 常见算法：</h5>
+<ol>
+<li>支持向量机<strong>SVM</strong>：用于<strong>二分类和多分类</strong>任务</li>
+<li>决策树 ：基于树结构的<strong>分类和回归</strong>算法</li>
+<li>逻辑回归 <strong>Logistic Regression</strong>：应用于<strong>二分类</strong>问题的线性模型</li>
+<li>K近邻算法 <strong>KNN</strong>：距离<strong>度量</strong>来对新样本进行分类或回归预测</li>
+</ol>
+<h5>2.4 常见应用场景</h5>
+<p>图像识别，自然语言处理，语音识别，医学诊断等</p>
+<h4>3 无监督学习</h4>
+<h5>3.1 定义：</h5>
+<p>不知道数据集中数据、特征之间的关系，而是要根据<strong>聚类或一定的模型</strong>得到数据之间的关系。</p>
+<p>在无监督学习中数据<strong>只有特征(feature)，没有标签(label)</strong>，是一种机器学习的训练方式，它本质上是一个<strong>统计手段</strong>，在没有标签的数据里可以发现潜在的一些结构的一种训练方式。</p>
+<blockquote>
+<p>简单理解：比起监督学习，无监督学习更像是自学，让机器学会自己做事情。</p>
+</blockquote>
+<h5>3.2 类别：</h5>
+<p><strong>聚类Clustering</strong>：将数据样本分成相似的组别或簇的过程</p>
+<p><strong>降维Dimension Reduction</strong>：降低数据复杂性同时保证数据特征</p>
+<p>关联规则挖掘、异常检测</p>
+<h5>3.3 常见算法：</h5>
+<ol>
+<li><strong>K均值聚类K-Means Clustering</strong>：聚类算法，数据分为K个簇，使样本与所属簇中心距离最小化</li>
+<li><strong>主成分分析PCA</strong>：降维算法，通过线性变化降维同时保留最重要的特征</li>
+<li>关联规则挖掘：发现数据集中项之间关联性的方法，它常用于市场篮子分析、购物推荐等领域</li>
+<li>异常检测：用于识别与大多数样本不同的罕见或异常数据点。</li>
+</ol>
+<h5>3.4 常见应用场景：</h5>
+<p>聚类分组，特征学习与降维，异常检测，关联规则挖掘</p>
+<h4>4 强化学习</h4>
+<h5>4.1 定义：</h5>
+<p>让一个<strong>智能体（agent）在环境中通过尝试和错误来学习行为策略。智能体通过与环境</strong>进行交互，根据<strong>奖励信号</strong>来调整其行为策略，以达到<strong>最大化累积奖励</strong>的目标。</p>
+<ol>
+<li>
+<p>智能体观察当前环境状态（state）。</p>
+</li>
+<li>
+<p>基于当前状态，智能体选择一个动作（action）。</p>
+</li>
+<li>
+<p>环境根据智能体的动作转换到新的状态，并返回一个奖励信号（reward）。</p>
+</li>
+<li>
+<p>智能体根据奖励信号更新其策略，以便在将来的决策中获得更好的奖励。</p>
+</li>
+<li>
+<p>重复以上步骤，直到智能体学习到一个使其获得最大累积奖励的策略。</p>
+</li>
+</ol>
+<h5>4.2 类别：</h5>
+<ol>
+<li>基于<strong>值</strong>的强化学习Value-Based RL：学习<strong>价值函数</strong>，即给定状态或状态-动作对的值，代表了智能体在该状态或状态-动作对上能够获得的累积奖励的估计值</li>
+<li>基于<strong>策略</strong>的强化学习Policy-Based RL：学习<strong>策略函数</strong>，即将状态映射到动作的映射</li>
+<li>基于<strong>模型</strong>的强化学习Model-Based RL：学习<strong>环境</strong>的模型，即从状态和动作预测下一个状态和奖励</li>
+<li><strong>深度强化学习Deep Reinforcement RL</strong>：将深度神经网络（感知）与强化学习（决策）相结合。它通常使用深度神经网络来近似值函数或策略函数。深度强化学习在处理高维状态空间和动作空间的任务时表现出色。</li>
+<li>多智能体强化学习Multi-Agent RL：研究多个智能体在相互作用环境中的学习问题</li>
+</ol>
+<h5>4.3 常见算法：</h5>
+<p>Q-Learning, SARSA, DQN, A3C...</p>
+<h5>4.4 常见应用场景：</h5>
+<p>自动驾驶，机器人控制，语音识别和自然语言处理</p>
+<h4>深度学习</h4>
+<p>是机器学习的一个重要分支，与前面四种不在一个讨论维度，即深度学习下也有监督，无监督之分；</p>
+<p><strong>黑盒，通过多层神经网络学习理解复杂数据，可解释性可能不好，基于模型的（相比强化学习是基于任务的）</strong></p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://lqh-dlut.github.io/passion">StudyAllDay</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","lqh-dlut/passion");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+
+
+</html>
