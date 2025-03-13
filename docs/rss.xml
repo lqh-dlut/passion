@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>StudyAllDay</title><link>https://lqh-dlut.github.io/passion</link><description>hello</description><copyright>StudyAllDay</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://lqh-dlut.github.io/passion</link></image><lastBuildDate>Wed, 05 Mar 2025 16:14:14 +0000</lastBuildDate><managingEditor>StudyAllDay</managingEditor><ttl>60</ttl><webMaster>StudyAllDay</webMaster><item><title>算法</title><link>https://lqh-dlut.github.io/passion/post/suan-fa.html</link><description>__
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>StudyAllDay</title><link>https://lqh-dlut.github.io/passion</link><description>hello</description><copyright>StudyAllDay</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://lqh-dlut.github.io/passion</link></image><lastBuildDate>Thu, 13 Mar 2025 07:38:13 +0000</lastBuildDate><managingEditor>StudyAllDay</managingEditor><ttl>60</ttl><webMaster>StudyAllDay</webMaster><item><title>算法</title><link>https://lqh-dlut.github.io/passion/post/suan-fa.html</link><description>__
 ```
 vec.append(n)
 set.add(n)
@@ -107,38 +107,38 @@ special emphasis on kinematically and socially unusual behavior运动学和社�
 &#13;
 ## Map change dataset&#13;
 &#13;
-1。</description><guid isPermaLink="true">https://lqh-dlut.github.io/passion/post/Argoverse%20Dataset.html</guid><pubDate>Tue, 03 Dec 2024 16:15:35 +0000</pubDate></item><item><title>Python相关</title><link>https://lqh-dlut.github.io/passion/post/Python-xiang-guan.html</link><description>### open()函数&#13;
-`open('path/file.format', encoding='格式[gbk]', '打开模式[r]')`&#13;
-&#13;
-#### 打开模式&#13;
-```&#13;
-# r 只读，默认模式，不存在则抛出错误&#13;
-# rb 二进制打开只读&#13;
-# r+ 读写，指针在文件开头&#13;
-# w 只写，如果存在则覆盖原文件，否则创建新文件&#13;
-# a 追加，如果存在则在结尾追加内容，否则创建新文件&#13;
-```&#13;
-&#13;
-open后要`f.close()`，或 ` with open() as f:`&#13;
-&#13;
-操作之后read如果没有内容可能是**指针问题** read前把指针放在开始位置 ` f.seek(0) `&#13;
-&#13;
-### lambda&#13;
-` fun1 = lambda x,y[参数]: x+y[执行内容]&#13;
-&#13;
-### copy 与 deepcopy&#13;
-&#13;
-赋值 是在同一个内存空间&#13;
-copy（浅拷贝）只复制一层，子集内的是同一个内存空间&#13;
-deepcopy深拷贝，完全重建一个集合&#13;
-&#13;
-### zip&#13;
-同时处理若干个列表&#13;
-&#13;
-```&#13;
-d = {}&#13;
- for n, s, b in zip(name, score, bonus):&#13;
-    d[n] = s+b&#13;
+1。</description><guid isPermaLink="true">https://lqh-dlut.github.io/passion/post/Argoverse%20Dataset.html</guid><pubDate>Tue, 03 Dec 2024 16:15:35 +0000</pubDate></item><item><title>Python相关</title><link>https://lqh-dlut.github.io/passion/post/Python-xiang-guan.html</link><description>### open()函数
+`open('path/file.format', encoding='格式[gbk]', '打开模式[r]')`
+
+#### 打开模式
+```
+# r 只读，默认模式，不存在则抛出错误
+# rb 二进制打开只读
+# r+ 读写，指针在文件开头
+# w 只写，如果存在则覆盖原文件，否则创建新文件
+# a 追加，如果存在则在结尾追加内容，否则创建新文件
+```
+
+open后要`f.close()`，或 ` with open() as f:`
+
+操作之后read如果没有内容可能是**指针问题** read前把指针放在开始位置 ` f.seek(0) `
+
+### lambda
+` fun1 = lambda x,y[参数]: x+y[执行内容] `
+
+### copy 与 deepcopy
+
+赋值 是在同一个内存空间
+copy（浅拷贝）只复制一层，子集内的是同一个内存空间
+deepcopy深拷贝，完全重建一个集合
+
+### zip
+同时处理若干个列表
+
+```
+d = {}
+ for n, s, b in zip(name, score, bonus):
+    d[n] = s+b
 ```。</description><guid isPermaLink="true">https://lqh-dlut.github.io/passion/post/Python-xiang-guan.html</guid><pubDate>Thu, 19 Sep 2024 14:27:36 +0000</pubDate></item><item><title>LLM</title><link>https://lqh-dlut.github.io/passion/post/LLM.html</link><description>**RAG: retrieval-augmented generation检索增强生成**&#13;
 &gt; 整合了从庞大知识库中检索到的相关信息，并以此为基础，指导大型语言模型生成更为精准的答案，从而显著提升了回答的准确性与深度&#13;
 &#13;

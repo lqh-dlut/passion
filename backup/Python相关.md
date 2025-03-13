@@ -15,7 +15,7 @@ open后要`f.close()`，或 ` with open() as f:`
 操作之后read如果没有内容可能是**指针问题** read前把指针放在开始位置 ` f.seek(0) `
 
 ### lambda
-` fun1 = lambda x,y[参数]: x+y[执行内容]
+` fun1 = lambda x,y[参数]: x+y[执行内容] `
 
 ### copy 与 deepcopy
 
