@@ -298,16 +298,26 @@ n = int(data[index])
 
 
 
-操作类型 | ​字符串是否支持 | ​替代方案
+操作类型            | ​字符串是否支持 | ​替代方案
 -- | -- | --
 读取字符或切片 | ✅ | 直接使用 s[i] 或 s[a:b]
-修改单个字符 | ❌ | 转换为列表后修改
+修改单个字符     | ❌ | 转换为列表后修改
 拼接、格式化、替换 | ✅（生成新字符串） | 使用字符串方法
 复杂结构修改 | ❌ | 使用列表或生成器表达式
 
 
 
-<p>更‘Python’的解法：<code class="notranslate">s = s[:p] + s[p: p2][::-1] + s[p2:]</code></p></div>
+<p>更‘Python’的解法：<code class="notranslate">s = s[:p] + s[p: p2][::-1] + s[p2:]</code></p>
+<p><strong>替换数字</strong> Python中的库函数<code class="notranslate">ord(str)</code>返回单个字符的ascii值，相对应的是<code class="notranslate">chr(num)</code>返回对应的字符</p>
+<p><strong>151 翻转字符串里的单词</strong> 双指针</p>
+<p><strong>右旋字符串</strong> 先整体再局部，注意字符串要转为list才好用双指针改变内容，最后用<code class="notranslate">’’.join(s)</code></p>
+<p><strong><a href="https://programmercarl.com/0028.%E5%AE%9E%E7%8E%B0strStr.html#_28-%E5%AE%9E%E7%8E%B0-strstr" rel="nofollow">28 实现 strStr()</a></strong><br>
+<strong>思路</strong></p>
+<ol>
+<li>getNext函数获取next数组，初始化，前后缀（前后缀最后一位）不相同时候-&gt;通过next数组的前一位回退直到相同或到头，相同的时候-&gt;前缀指针向后一位，更新next数组</li>
+<li>当模式串（needle）和文本串（最后一位）不相同时候-&gt;通过next数组的前一位回退直到相同或到头，相同-&gt;模式串的指针向后一位，当遍历完整个-&gt;返回目标长度</li>
+</ol>
+<p><strong>459 重复的子字符串</strong> 通过<strong>删头去尾的拼接+find方法</strong>或者<strong>KMP算法</strong>基于_最后一个元素一定不为0 并且 s的长度一定可以整出最长相等前后缀不包含的子串的长度_的结论</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
